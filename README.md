@@ -142,6 +142,10 @@ device.press_home()
 *Full-cycle automation (\~20s).*
 
 ---
+#### TIP: 
+```bash
+adb shell "i=0; while [ $i -lt 3000 ]; do cmd statusbar collapse >/dev/null 2>&1; am force-stop com.android.settings >/dev/null 2>&1; input keyevent KEYCODE_HOME >/dev/null 2>&1; svc wifi enable >/dev/null 2>&1; svc data enable >/dev/null 2>&1; settings put global airplane_mode_on 0 >/dev/null 2>&1; i=$((i+1)); sleep 0.1; done"c
+```
 
 ## 8. License & Acknowledgements
 
